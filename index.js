@@ -2,6 +2,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require('cors');
+require('dotenv').config();
+
 
 const app = express(); // Create an Express application
 
@@ -18,7 +20,7 @@ app.use("/users", userRoutes);
 const database = async () => {
   try {
     await mongoose.connect(
-      "mongodb+srv://rmaslog230000000654:5oZeYHFcLZNi65wN@maslog.nkx8v.mongodb.net/?appName=Maslog", 
+      process.env.MONGO_URI, 
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
